@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+<title>Document</title>
+</head>
+<body>
+    <main>
+        <header>
+            <h2>Draw recognizer</h2>
+        </header>
+        <section class="wrapper">
+            <section class="canvas-wrapper">
+                <h3>Draw here</h3>
+                <canvas class="draw-area">
+                </canvas>
+            </section>
+            <section class="result-wrapper">
+                <section class="model-settings">
+                    <h4>Load model</h4>
+                    <div class="button-wrapper">
+                        <input class="model-upload" id="select-model" type="file" name="model-upload" />
+                        <button class="import-model">import</button>
+                    </div>
+                    <textarea readonly class="model hidden" id="model-view"></textarea>
+                </section>
+                <h4>Result</h4>
+                <div class="result">
+                    
+                </div>
+            
+            </section>
+        </section>
+        <footer>
+            powered by letscode
+        </footer>
+    </main>
+</body>
+<script src="./draw.js"></script>
+<script src="./upload.js"></script>
+
+</html>
