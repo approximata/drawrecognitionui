@@ -1,8 +1,10 @@
 const canvas = document.querySelector('.draw-area');
 
+let image;
+
 const setupCanvas = () => {
-    ctx.canvas.width = "280";
-    ctx.canvas.height = "280";
+    ctx.canvas.width = "28";
+    ctx.canvas.height = "28";
 }
 
 const getOffset = (el) => {
@@ -28,9 +30,9 @@ const draw = (e) => {
 
     ctx.beginPath();
 
-    ctx.lineWidth = 10;
+    ctx.lineWidth = 5;
     ctx.lineCap = 'round';
-    ctx.strokeStyle = '#c0392b';
+    ctx.strokeStyle = '#ffffff';
 
     let {x, y} = getOffset(canvas)
 
@@ -41,8 +43,18 @@ const draw = (e) => {
     ctx.stroke(); 
 }
 
+const convertCanvas = () => {
+    const converted = document.querySelector('.converted');
+    const convertedCtx = converted.getContext("2d");
+    convertedCtx.width = "28";
+    convertedCtx.height = "28";
+    image = ctx.getImageData(0, 0, convertedCtx.width, convertedCtx.height);
+    console.log()
+    convertedCtx.drawImage(image, convertedCtx.width, convertedCtx.height);
+}
 
-window.addEventListener('setupCanvas', setupCanvas);
+window.addEventListener('setupCanvas', setupCanvas); 
 canvas.addEventListener('mousemove', draw);
 canvas.addEventListener('mousedown', setPosition);
 canvas.addEventListener('mouseenter', setPosition);
+canvas.addEventListener('mouseup', convertCanvas);

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"> </script>
 <title>Document</title>
 </head>
 <body>
@@ -19,19 +20,12 @@
                 </canvas>
             </section>
             <section class="result-wrapper">
-                <section class="model-settings">
-                    <h4>Load model</h4>
-                    <div class="button-wrapper">
-                        <input class="model-upload" id="select-model" type="file" name="model-upload" />
-                        <button class="import-model">import</button>
-                    </div>
-                    <textarea readonly class="model hidden" id="model-view"></textarea>
-                </section>
+                <canvas class="converted"></canvas>
+                <button class="predict">predict</button>
                 <h4>Result</h4>
                 <div class="result">
                     
-                </div>
-            
+                </div>     
             </section>
         </section>
         <footer>
@@ -40,6 +34,7 @@
     </main>
 </body>
 <script src="./draw.js"></script>
-<script src="./upload.js"></script>
+<script src="./recognize.js"></script>
+
 
 </html>
