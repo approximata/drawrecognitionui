@@ -93,6 +93,7 @@ const predictionResolver = () => {
             const drawingInPixel = tf.browser.fromPixels(drawing, 3).mean(2).div(255.0).expandDims(0);
             const prediction = model.predict(drawingInPixel);
             console.log(prediction.dataSync());
+            console.log(`pred: ${prediction}`)
             resolve(prediction);
         });
     })};
@@ -109,7 +110,7 @@ const showPredictionResult = (predictionResult) => {
     resultElement.className = 'result'
     predictionResult.dataSync().forEach((element, index) => {
         const row = document.createElement('p');
-        row.innerHTML = `${index}: ${element}`;
+        row.innerHTML = `${index} : ${element}`;
         resultElement.appendChild(row);
     })
     resultWrapper.appendChild(resultElement);

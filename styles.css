@@ -1,9 +1,14 @@
 body {
-    background-color: grey;
+    background-color: #434343;
+    display: flex;
+    justify-content: center;
 }
 
 main{
-    margin: 5%;
+    margin: 1%;
+    padding: 2%;
+    background-color: grey;
+    width: 700px;
 }
 
 .draw-area {
@@ -13,7 +18,16 @@ main{
 .wrapper {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;    
+    justify-content: left; 
+    flex-wrap: wrap; 
+}
+
+.canvas-wrapper {
+    margin:5%;
+}
+
+.result-wrapper {
+    margin: 5%;
 }
 
 .visible {
@@ -27,4 +41,41 @@ main{
 .button-wrapper {
     display: flex;
     flex-direction: column;
+}
+
+.result {
+    background-color: silver;
+    padding: 5px 10px;
+}
+
+.result > p {
+    border: black;
+
+}
+
+.clear {
+    color: #fff !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    background: #434343;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+    min-width: 150px;
+}
+
+.clear:hover {
+    background: LightCoral;
+    letter-spacing: 2px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+    transition: all 0.4s ease 0s;
+}
+
+footer {
+    margin: 10% 0;
 }
