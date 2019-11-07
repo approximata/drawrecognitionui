@@ -110,9 +110,8 @@ const showPredictionResult = (predictionResult) => {
     resultElement.className = 'result'
     predictionResult.dataSync().forEach((element, index) => {
         const row = document.createElement('p');
-        const precision = 1000000;
-        const rounded = (Math.round(element * precision) / (precision/100));
-        row.innerHTML = `${index} :  ${rounded}%`;
+        const rounded = element.toFixed(3);
+        row.innerHTML = `${index} :  ${rounded}`;
         resultElement.appendChild(row);
     })
     resultWrapper.appendChild(resultElement);
