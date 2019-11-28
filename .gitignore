@@ -1,4 +1,11 @@
 # Dependency directories
 node_modules/
+
+# PyCharm
 .idea/
+
+# Jupyter Nodebook
 .ipynb_checkpoints/
+
+# Mac
+.DS_Store
