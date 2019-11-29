@@ -13,11 +13,15 @@ Once the server is up, open `index.html`.
 
 #### How to train a new model:
 ```bash
-$ conda create --name mnist python=3.7
-$ conda activate mnist
-$ pip install -r requirements.txt
-$ pip uninstall prompt-toolkit
-$ pip install prompt-toolkit
-$ jupyter lab
+cd train
+docker build -t train_image .
+docker run --name train_container \
+           --rm \ 
+           -it \
+           -p 8888:8888 \
+           --mount src=$(dirname $(pwd))/model,target=/home/docker/model,type=bind \
+           train_image
+```
+Folder structure within `train_container` after `docker run`.
 ```
 Within Jupyter Lab, open `train_model.ipynb` and run its cells.
