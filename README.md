@@ -6,10 +6,19 @@ The project aims to experiment the latest ML APIs (e.g. TensorFlow v2.0).
 
 #### How to launch:
 ```bash
-$ npm install
-$ node server.js
+docker build -t ui_image .
+docker run --name ui_container \
+           --rm \
+           -it \
+           -p 3000:3000 \
+           --mount src=$(pwd),target=/home/docker,type=bind \
+           ui_image
+
+# within ui_container
+npm install
+node server.js
 ```
-Once the server is up, open `index.html`.
+Once the server is up within `ui_container`, you can reach the UI under http://localhost:3000.
 
 #### How to train a new model:
 ```bash
@@ -24,4 +33,10 @@ docker run --name train_container \
 ```
 Folder structure within `train_container` after `docker run`.
 ```
-Within Jupyter Lab, open `train_model.ipynb` and run its cells.
+home
+`-- docker
+    |-- model
+    |   |-- group1-shard1of1.bin
+    |   `-- model.json
+    `-- train_model.ipynb
+```
