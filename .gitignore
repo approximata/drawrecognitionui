@@ -1,11 +1,12 @@
 # Dependency directories
 node_modules/
 
-# PyCharm
+# IDE
 .idea/
+.vscode
 
-# Jupyter Nodebook
+# Jupyter Notebook
 .ipynb_checkpoints/
 
-# Mac
+# Mac shit
 .DS_Store
