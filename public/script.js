@@ -9,6 +9,9 @@ const setupCanvas = () => {
     ctx.canvas.height = "280";
 }
 
+
+// Draw
+
 const getOffset = (el) => {
     const rect = el.getBoundingClientRect();
     return {
@@ -49,6 +52,10 @@ const draw = (e) => {
     ctx.stroke();
 }
 
+// Draw End
+
+// Clear
+
 const clearCanvas = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 }
@@ -58,6 +65,21 @@ const removeDomElement = (element) => {
         element.parentNode.removeChild(element);
     }
 }
+
+const removeResult = () => {
+    const resultElement = document.querySelector('.result');
+    removeDomElement(resultElement);
+}
+
+const clear = () => {
+    clearCanvas();
+    removeResizedCanvas();
+    removeResult();
+}
+
+// Clear End
+
+// Show Result
 
 const resizeRecCanvas = (size) => {
     const image = new Image();
@@ -95,11 +117,6 @@ const predictionResolver = () => {
         });
     })};
 
-const removeResult = () => {
-    const resultElement = document.querySelector('.result');
-    removeDomElement(resultElement);
-}
-
 const showPredictionResult = (predictionResult) => {
     removeResult();
     const resultWrapper = document.querySelector('.result-wrapper');
@@ -121,11 +138,7 @@ const showResult = () => {
     }))
 }
 
-const clear = () => {
-    clearCanvas();
-    removeResizedCanvas();
-    removeResult();
-}
+// Show end 
 
 setupCanvas();
 document.querySelector('.clear').onclick = clear;
