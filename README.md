@@ -12,12 +12,7 @@ $ docker run --name ui_container \
              --rm \
              -it \
              -p 3000:3000 \
-             --mount src=$(pwd),target=/home/docker,type=bind \
              ui_image
-
-# within ui_container
-$ npm install
-$ node server.js
 ```
 Once the JavaScript server is up within `ui_container`, the user reach the UI under http://localhost:3000.
 

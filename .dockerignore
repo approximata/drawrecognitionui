@@ -1,2 +1,21 @@
-# Ignore everything
-**
+# Dependency directories
+node_modules/
+
+# IDE
+.idea/
+.vscode
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Mac shit
+.DS_Store
+
+# Irrelevant files and folders
+convert_context
+train_context
+.git
+.gitignore
+.dockerignore
+README.md
+Dockerfile
