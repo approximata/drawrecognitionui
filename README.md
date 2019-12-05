@@ -12,12 +12,7 @@ $ docker run --name ui_container \
              --rm \
              -it \
              -p 3000:3000 \
-             --mount src=$(pwd),target=/home/docker,type=bind \
              ui_image
-
-# within ui_container
-$ npm install
-$ node server.js
 ```
 Once the JavaScript server is up within `ui_container`, the user reach the UI under http://localhost:3000.
 
@@ -60,14 +55,14 @@ To train a new model, open the Jupyter server within your browser, open `train_m
 
 ## How to convert the newly trained model
 ```bash
-$ docker build -t conversion_image conversion_context
-$ docker run --name conversion_container \
+$ docker build -t convert_image convert_context
+$ docker run --name convert_container \
              --rm \ 
              -it \
              --mount src=$(pwd)/model,target=/home/docker/model,type=bind \
-             conversion_image
+             convert_image
 
-# within conversion_container
+# within convert_container
 $ tensorflowjs_converter --input_format=keras model/model.h5 model
 ```
 We override the default model with the above conversion. If `ui_container` is still running, restarting its JavaScript

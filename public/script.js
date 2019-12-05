@@ -18,7 +18,6 @@ const getOffset = (el) => {
 }
 
 const ctx = canvas.getContext('2d');
-setupCanvas();
 
 const pos = {
     x: 0,
@@ -87,13 +86,11 @@ const showResizedCanvas = () => {
 }
 
 const predictionResolver = () => {
-     return new Promise((resolve) => {
+     return new Promise(resolve => {
         tf.loadLayersModel(MODEL_URL).then(model => {
             const drawing = document.querySelector('.resized-canvas');
-            const drawingInPixel = tf.browser.fromPixels(drawing, 3).div(255).mul([0.299, 0.587, 0.114]).sum(2).expandDims(0).expandDims(3);
-            const prediction = model.predict(drawingInPixel);
-            console.log(prediction.dataSync());
-            console.log(`pred: ${prediction}`)
+            const preprocessedDrawing = tf.browser.fromPixels(drawing, 3).div(255).mul([0.299, 0.587, 0.114]).sum(2).expandDims(0).expandDims(3);
+            const prediction = model.predict(preprocessedDrawing);
             resolve(prediction);
         });
     })};
@@ -130,9 +127,9 @@ const clear = () => {
     removeResult();
 }
 
+setupCanvas();
 document.querySelector('.clear').onclick = clear;
 
-window.addEventListener('setupCanvas', setupCanvas);
 canvas.addEventListener('mousemove', draw);
 canvas.addEventListener('mousedown', setPosition);
 canvas.addEventListener('mouseenter', setPosition);
