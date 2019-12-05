@@ -89,8 +89,8 @@ const predictionResolver = () => {
      return new Promise(resolve => {
         tf.loadLayersModel(MODEL_URL).then(model => {
             const drawing = document.querySelector('.resized-canvas');
-            const drawingInPixel = tf.browser.fromPixels(drawing, 3).div(255).mul([0.299, 0.587, 0.114]).sum(2).expandDims(0);
-            const prediction = model.predict(drawingInPixel);
+            const preprocessedDrawing = tf.browser.fromPixels(drawing, 3).div(255).mul([0.299, 0.587, 0.114]).sum(2).expandDims(0);
+            const prediction = model.predict(preprocessedDrawing);
             resolve(prediction);
         });
     })};

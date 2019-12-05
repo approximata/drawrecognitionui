@@ -1,3 +1,0 @@
-tensorflowjs
-jupyterlab
-matplotlib
