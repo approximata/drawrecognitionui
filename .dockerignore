@@ -19,3 +19,4 @@ train_context
 .dockerignore
 README.md
 Dockerfile
+drawrecognitionui.gif
