@@ -3,7 +3,7 @@
 Toy project implementing the "Hello Word" of Machine Learning, namely the
 [MNIST Machine Learning Challenge](https://www.kaggle.com/c/mnist-tutorial-machine-learning-challenge).
 The project aims to experiment with the latest APIs (e.g. TensorFlow v2.0).
-
+![](drawrecognitionui.gif)
 
 ## How to launch the drawing UI
 ```bash
